@@ -8,3 +8,9 @@
     gap: 1rem;
     padding-top: 1rem;
 }
+
+.Menu > .active {
+    color:darksalmon;
+    font-weight: bold;
+    font-family: Arial;
+}
