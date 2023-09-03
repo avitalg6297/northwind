@@ -1,15 +1,27 @@
 import "./Home.css";
 import produceSource from '../../../Assets/Images/food.jpg'
 import candySource from '../../../Assets/Images/candy.png'
+import cheeseSource from '../../../Assets/Images/cheese.jpg'
+import fishAndChipsSource from '../../../Assets/Images/fishAndChips.jpeg'
+import fruitsSource from '../../../Assets/Images/fruits.jpg'
+import candiesSource from '../../../Assets/Images/candies.jpg'
+import beveragesSource from '../../../Assets/Images/beverages.jpg'
 
 function Home(): JSX.Element {
 
+    const food = [];
+    food.push({ id: 1, subject: "Fruits", image: { fruitsSource } })
+    food.push({ id: 2, subject: "Cheese", image: { cheeseSource } })
+    food.push({ id: 3, subject: "Fish And Chips", image: { fishAndChipsSource } })
+    food.push({ id: 4, subject: "Candies", image: { candiesSource } })
+    food.push({ id: 5, subject: "Beverages", image: { beveragesSource } })
+
     // gets the data from the server
     const desserts = [
-        { id:1 , name:"Ice cream" , price:10},
-        { id:2 , name:"Eclair", price:15},
-        { id:3 , name:"Apple pie", price:20},
-        { id:4 , name:"Pavlova", price:5}
+        { id: 1, name: "Ice cream", price: 10 },
+        { id: 2, name: "Eclair", price: 15 },
+        { id: 3, name: "Apple pie", price: 20 },
+        { id: 4, name: "Pavlova", price: 5 }
     ];
 
     const imageNumber = Math.floor(Math.random() * 2) + 1;
@@ -29,10 +41,10 @@ function Home(): JSX.Element {
         <div className="Home">
 
             { /*Conditional rendering first way - */}
-            <img src={ imageNumber === 1 ? produceSource : candySource} />
-            <br/>
+            <img src={imageNumber === 1 ? produceSource : candySource} />
+            <br />
 
-            {desserts.map(d =><span key={d.id}>{d.name} {d.price}🤍</span>)}
+            {desserts.map(d => <span key={d.id}>{d.name} {d.price}🤍</span>)}
 
             {/* Conditional rendering second way */}
             {/* {imageNumber === 1 ? <img src = {produceSource} /> :  < img src = {candySource} />} */}
@@ -47,9 +59,16 @@ function Home(): JSX.Element {
 
             {/* <img src={candySource} /> */}
             <br></br>
-            {(day <= 4 && day >=0) ? <p>week day</p> : <p>weekend</p>}
+            {(day <= 4 && day >= 0) ? <p>week day</p> : <p>weekend</p>}
 
-            
+            {food.map(f=> (
+                <span key={f.id}>
+                    <p>{f.subject}</p>
+                    <img src={f.image} />
+                </span>
+            ))}
+
+
 
         </div>
     );

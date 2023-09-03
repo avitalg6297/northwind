@@ -1,0 +1,25 @@
+.WhoAreWe {
+	
+}
+
+.Container{
+    display: inline-block;
+    border:1px solid;
+    margin:10px;
+    padding:10px;
+}
+
+.NiceText{
+    color:lightgreen;
+    background-color: darkblue;
+    font-weight: bold;
+
+}
+
+.OpenHours{
+    color:lightseagreen;
+    background-color: darkslategrey;
+    font-weight: bold;
+    display:inline-block;
+
+}
