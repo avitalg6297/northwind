@@ -1,0 +1,10 @@
+.Menu>a {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: xx-large;
+    color: black;
+    gap: 1rem;
+    padding-top: 1rem;
+}
