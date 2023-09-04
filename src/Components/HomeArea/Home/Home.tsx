@@ -10,11 +10,11 @@ import beveragesSource from '../../../Assets/Images/beverages.jpg'
 function Home(): JSX.Element {
 
     const food = [];
-    food.push({ id: 1, subject: "Fruits", image: { fruitsSource } })
-    food.push({ id: 2, subject: "Cheese", image: { cheeseSource } })
-    food.push({ id: 3, subject: "Fish And Chips", image: { fishAndChipsSource } })
-    food.push({ id: 4, subject: "Candies", image: { candiesSource } })
-    food.push({ id: 5, subject: "Beverages", image: { beveragesSource } })
+    food.push({ id: 1, subject: "Fruits", image:  fruitsSource  })
+    food.push({ id: 2, subject: "Cheese", image:  cheeseSource  })
+    food.push({ id: 3, subject: "Fish And Chips", image:  fishAndChipsSource })
+    food.push({ id: 4, subject: "Candies", image: candiesSource  })
+    food.push({ id: 5, subject: "Beverages", image:  beveragesSource })
 
     // gets the data from the server
     const desserts = [
@@ -62,10 +62,10 @@ function Home(): JSX.Element {
             {(day <= 4 && day >= 0) ? <p>week day</p> : <p>weekend</p>}
 
             {food.map(f=> (
-                <span key={f.id}>
+                <div key={f.id}>
                     <p>{f.subject}</p>
                     <img src={f.image} />
-                </span>
+                </div>
             ))}
 
 
