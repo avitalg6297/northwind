@@ -1,6 +1,41 @@
-.Home > img {
+.Home  img {
     width:400px;
     height:300px;
     border:1px solid;
-    margin: 20px
+    margin: 20px;
+  
 }
+
+/* .Home{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+} */
+
+.Home .Product {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Home > .Products {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.Home .Product  img {
+    width:270px;
+    height:170px;
+    border:1px solid;
+    margin: 20px;
+  
+}
+
+
+
+/* #id
+.className
+none type */

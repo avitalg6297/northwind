@@ -6,6 +6,7 @@ import fishAndChipsSource from '../../../Assets/Images/fishAndChips.jpeg'
 import fruitsSource from '../../../Assets/Images/fruits.jpg'
 import candiesSource from '../../../Assets/Images/candies.jpg'
 import beveragesSource from '../../../Assets/Images/beverages.jpg'
+import Search from "../Search/Search";
 
 function Home(): JSX.Element {
 
@@ -40,6 +41,9 @@ function Home(): JSX.Element {
     return (
         <div className="Home">
 
+            <Search/>
+            
+
             { /*Conditional rendering first way - */}
             <img src={imageNumber === 1 ? produceSource : candySource} />
             <br />
@@ -61,12 +65,14 @@ function Home(): JSX.Element {
             <br></br>
             {(day <= 4 && day >= 0) ? <p>week day</p> : <p>weekend</p>}
 
+            <div className="Products">
             {food.map(f=> (
-                <div key={f.id}>
-                    <p>{f.subject}</p>
+                <div className="Product" key={f.id}>
                     <img src={f.image} />
+                    <p>{f.subject}</p>
                 </div>
             ))}
+            </div>
 
 
 

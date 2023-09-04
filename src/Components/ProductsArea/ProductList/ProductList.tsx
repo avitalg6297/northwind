@@ -1,9 +1,23 @@
+import { useEffect, useState } from "react";
 import "./ProductList.css";
+import productsService from "../../../Services/ProductsService";
+import ProductModel from "../../../Models/ProductModel";
+import ProductCard from "../../ProductArea/ProductCard/ProductCard";
 
 function ProductList(): JSX.Element {
+
+
+    const[allProducts, setAllProducts] = useState<ProductModel[]>([]);
+
+    useEffect(() => {
+        productsService.getAllProducts()
+            .then(products =>setAllProducts(products))
+            .catch(err => alert(err.message))
+    }, [])
     return (
         <div className="ProductList">
-			product list...
+            {/* Sending data to props */}
+           {allProducts.map(p=> <ProductCard key={p.id} product={p}/>)}
         </div>
     );
 }
