@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from "react";
 
 function EditProduct(): JSX.Element {
 
-    const { register, handleSubmit, formState, setValue } = useForm<ProductModel>();
+    const { register, handleSubmit, formState, setValue, watch } = useForm<ProductModel>();
 
     const navigate = useNavigate();
 
@@ -21,10 +21,11 @@ function EditProduct(): JSX.Element {
         const id = +params.id;
         productsService.getOneProduct(id).then(product => {
             setValue("id", product.id);
-            // setValue("name", product.name);
+            setValue("name", product.name);
             setValue("price", product.price);
             setValue("stock", product.stock);
-            setValues(product)
+            // setValues(product)
+            setValue("imageUrl",product.imageUrl )
             
 
         }).catch(err => alert(err.message));
@@ -70,7 +71,7 @@ function EditProduct(): JSX.Element {
                 <input type="file" accept="image/*" {...register("image")} />
 
                 <img src={values?.imageUrl}/>
-
+                <img src={watch("imageUrl")} />
                 
 
                 <button>Update</button>
