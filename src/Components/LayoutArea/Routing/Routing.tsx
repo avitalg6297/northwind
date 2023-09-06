@@ -10,6 +10,7 @@ import EmployeeList from "../../EmployeesArea/EmployeeList/EmployeeList";
 import { Suspense, lazy } from "react";
 import Spinner from "../../SharedArea/Spinner/Spinner";
 import AddProduct from "../../ProductArea/AddProduct/AddProduct";
+import EditProduct from "../../ProductsArea/EditProduct/EditProduct";
 
 function delay() {
     return new Promise<void>(resolve => {
@@ -28,14 +29,14 @@ function Routing(): JSX.Element {
     return (
         <div className="Routing">
             <Routes>
-                
+            
+                 {/* Eager loading */}
                 <Route path="/home" element={<Home/>}/>
                 <Route path="/products" element={<ProductList/>}/>
                 <Route path="/employees" element={<EmployeeList/>}/>
                 <Route path="/products/details/:id" element={<ProductDetails/>}/>
+                <Route path="/products/edit/:id" element={<EditProduct/>}/>
                 <Route path="/products/new" element={<AddProduct/>}/>
-                {/* Eager loading */}
-                {/* <Route path="/about" element={<About/>}/> */}
                 
                 {/* lazy loading */}
                 <Route path="/about" element={
