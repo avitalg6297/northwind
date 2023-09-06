@@ -7,8 +7,12 @@ import fruitsSource from '../../../Assets/Images/fruits.jpg'
 import candiesSource from '../../../Assets/Images/candies.jpg'
 import beveragesSource from '../../../Assets/Images/beverages.jpg'
 import Search from "../Search/Search";
+import useTitle from "../../../Utils/UseTitle";
+import Orders from "../../SharedArea/Orders/Orders";
 
 function Home(): JSX.Element {
+
+    useTitle("Home");
 
     const food = [];
     food.push({ id: 1, subject: "Fruits", image:  fruitsSource  })
@@ -73,6 +77,8 @@ function Home(): JSX.Element {
                 </div>
             ))}
             </div>
+
+            <Orders />
 
 
 

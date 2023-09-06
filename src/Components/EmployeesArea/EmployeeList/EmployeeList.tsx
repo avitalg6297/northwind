@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import EmployeeModel from "../../../Models/EmployeeModel";
 import "./EmployeeList.css";
 import employeeService from "../../../Services/EmployeeService";
+import useTitle from "../../../Utils/UseTitle";
 
 function EmployeeList(): JSX.Element {
+
+    useTitle("Employees")
 
     const [allEmployees, setAllEmployees] = useState<EmployeeModel[]>([]);
 
@@ -32,7 +35,11 @@ function EmployeeList(): JSX.Element {
                         <tr>
                             <td>{employee.firstName}</td> 
                             <td>{employee.lastName}</td>
-                            <td> {employee.title}</td> {employee.title} {employee.country} {employee.city} {employee.birthDate} 
+                            <td> {employee.title}</td>
+                            <td> {employee.country}</td>
+                            <td>{employee.city}</td> 
+                            <td>{employee.birthDate} </td> 
+                            <img src ={employee.imageUrl}/>
                         </tr>
                         
                     )}

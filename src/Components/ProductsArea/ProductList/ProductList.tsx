@@ -3,9 +3,10 @@ import "./ProductList.css";
 import productsService from "../../../Services/ProductsService";
 import ProductModel from "../../../Models/ProductModel";
 import ProductCard from "../../ProductArea/ProductCard/ProductCard";
+import useTitle from "../../../Utils/UseTitle";
 
 function ProductList(): JSX.Element {
-
+    useTitle("Products");
 
     const[allProducts, setAllProducts] = useState<ProductModel[]>([]);
 

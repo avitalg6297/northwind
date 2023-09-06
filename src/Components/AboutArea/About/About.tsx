@@ -2,8 +2,14 @@ import { SyntheticEvent, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import WhoAreWe from "../WhoAreWe/WhoAreWe";
 import "./About.css";
+import Tune from "../Tune/Tune";
+import useTitle from "../../../Utils/UseTitle";
+import Greeting from "../../SharedArea/Greeting/Greeting";
+import Spinner from "../../SharedArea/Spinner/Spinner";
 
 function About(): JSX.Element {
+
+    useTitle("About");
 
     const [currentDate, setCurrentDate] = useState<string>('---');
     function showDate(): void {
@@ -69,11 +75,12 @@ function About(): JSX.Element {
             console.log(now.toLocaleTimeString());
         }, 1000);
 
-        return () => {clearInterval(timerId)}; // Invoke when component destroyed
+        return () => { clearInterval(timerId) }; // Invoke when component destroyed
     }, [])
 
     return (
         <div className="About">
+            <Greeting hour={new Date().getHours()} />
             <WhoAreWe />
 
             <hr />
@@ -90,6 +97,10 @@ function About(): JSX.Element {
             <hr />
 
             <span>{clock}</span>
+
+            <hr />
+            <Tune />
+
 
         </div>
     );
