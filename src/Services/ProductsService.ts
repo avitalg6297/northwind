@@ -25,6 +25,10 @@ class ProductsService {
         console.log(addProduct);
     }
 
+    public async deleteProduct(id:number): Promise<void>{
+        await axios.delete(appConfig.productUrl+ id)
+    }
+
 }
 
 const productsService = new ProductsService();

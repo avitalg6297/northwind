@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./ProductDetails.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import productsService from "../../../Services/ProductsService";
 import ProductModel from "../../../Models/ProductModel";
 import { NavLink } from "react-router-dom";
@@ -9,6 +9,8 @@ function ProductDetails(): JSX.Element {
 
     const params = useParams();
     // const params = useParams<{id: string}>();
+
+    const navigate = useNavigate();
 
     const [product, setProduct] = useState<ProductModel>();
 
@@ -35,6 +37,21 @@ function ProductDetails(): JSX.Element {
 
     }, [])
 
+    async function deleteMe() {
+        try {
+            const sure = window.confirm("Are you sure?");
+            if(!sure) return;
+
+            await productsService.deleteProduct(product.id);
+
+            alert("Product has been deleted");
+            navigate("/products");
+
+
+        } catch (err: any) {
+            alert(err.message)
+        }
+    }
     return (
         <div className="ProductDetails">
             <h3>Name: {product?.name}</h3>
@@ -43,6 +60,8 @@ function ProductDetails(): JSX.Element {
             <img src={product?.imageUrl} />
             <br />
             <NavLink to="/products">Back</NavLink>
+            <span>|</span>
+            <NavLink to="#" onClick={deleteMe}>Delete</NavLink>
         </div>
     );
 }
