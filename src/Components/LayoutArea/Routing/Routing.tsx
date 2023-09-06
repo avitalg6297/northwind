@@ -9,6 +9,7 @@ import ProductDetails from "../../ProductArea/ProductDetails/ProductDetails";
 import EmployeeList from "../../EmployeesArea/EmployeeList/EmployeeList";
 import { Suspense, lazy } from "react";
 import Spinner from "../../SharedArea/Spinner/Spinner";
+import AddProduct from "../../ProductArea/AddProduct/AddProduct";
 
 function delay() {
     return new Promise<void>(resolve => {
@@ -32,6 +33,7 @@ function Routing(): JSX.Element {
                 <Route path="/products" element={<ProductList/>}/>
                 <Route path="/employees" element={<EmployeeList/>}/>
                 <Route path="/products/details/:id" element={<ProductDetails/>}/>
+                <Route path="/products/new" element={<AddProduct/>}/>
                 {/* Eager loading */}
                 {/* <Route path="/about" element={<About/>}/> */}
                 
