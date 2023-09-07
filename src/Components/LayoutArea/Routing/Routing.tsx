@@ -11,44 +11,50 @@ import { Suspense, lazy } from "react";
 import Spinner from "../../SharedArea/Spinner/Spinner";
 import AddProduct from "../../ProductArea/AddProduct/AddProduct";
 import EditProduct from "../../ProductsArea/EditProduct/EditProduct";
+import Register from "../../AuthArea/Register/Register";
+import Login from "../../AuthArea/Login/Login";
+import Top3 from "../../ProductArea/Top3/Top3";
 
 function delay() {
     return new Promise<void>(resolve => {
-        setTimeout(()=> {
+        setTimeout(() => {
             resolve();
         }, 3000);
     });
 }
 
-const LazyAbout = lazy(async() =>{ 
+const LazyAbout = lazy(async () => {
     await delay();
-    return import ("../../AboutArea/About/About")
+    return import("../../AboutArea/About/About")
 });
 
 function Routing(): JSX.Element {
     return (
         <div className="Routing">
             <Routes>
-            
-                 {/* Eager loading */}
-                <Route path="/home" element={<Home/>}/>
-                <Route path="/products" element={<ProductList/>}/>
-                <Route path="/employees" element={<EmployeeList/>}/>
-                <Route path="/products/details/:id" element={<ProductDetails/>}/>
-                <Route path="/products/edit/:id" element={<EditProduct/>}/>
-                <Route path="/products/new" element={<AddProduct/>}/>
-                
+
+                {/* Eager loading */}
+                <Route path="/register" element={<Register />}></Route>
+                <Route path="/login" element={<Login />}/>
+                <Route path="/home" element={<Home />} />
+                <Route path="/products" element={<ProductList />} />
+                <Route path="/employees" element={<EmployeeList />} />
+                <Route path="/products/details/:id" element={<ProductDetails />} />
+                <Route path="/products/edit/:id" element={<EditProduct />} />
+                <Route path="/products/new" element={<AddProduct />} />
+                <Route path="/products/top3" element={<Top3 />} />
+
                 {/* lazy loading */}
                 <Route path="/about" element={
-                    <Suspense fallback={<Spinner/>}>
+                    <Suspense fallback={<Spinner />}>
                         <LazyAbout />
                     </Suspense>
-                }/>
+                } />
 
 
-                <Route path="*" element={<Page404/>}/>
-                <Route path="/" element={<Navigate to="/home" />}/>
-                <Route path="/contactus" element={<ContactUs/>}/>
+                <Route path="*" element={<Page404 />} />
+                <Route path="/" element={<Navigate to="/home" />} />
+                <Route path="/contactus" element={<ContactUs />} />
             </Routes>
         </div>
     );

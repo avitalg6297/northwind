@@ -5,6 +5,10 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { appStore } from './Redux/AppState';
 import { Provider } from 'react-redux';
+import interceptors from './Utils/Interceptors';
+
+//Create Interceptors once;
+interceptors.create();
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
