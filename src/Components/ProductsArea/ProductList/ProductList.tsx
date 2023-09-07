@@ -7,6 +7,7 @@ import useTitle from "../../../Utils/UseTitle";
 import Spinner from "../../SharedArea/Spinner/Spinner";
 import { useSelector } from "react-redux";
 import { AppState } from "../../../Redux/AppState";
+import TotalProducts from "../../ProductArea/TotalProducts/TotalProducts";
 
 function ProductList(): JSX.Element {
     useTitle("Products");
