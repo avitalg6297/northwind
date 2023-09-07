@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
-import "./AddProduct.css";
+import { useNavigate } from "react-router-dom";
 import ProductModel from "../../../Models/ProductModel";
 import productsService from "../../../Services/ProductsService";
-import { useNavigate } from "react-router-dom";
-import { kMaxLength } from "buffer";
+import "./AddProduct.css";
 
 function AddProduct(): JSX.Element {
 

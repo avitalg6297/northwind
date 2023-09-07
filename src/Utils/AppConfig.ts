@@ -5,6 +5,7 @@ class AppConfig {
     public registerUrl = "http://localhost:3030/api/register/";
     public loginUrl = "http://localhost:3030/api/login/";
     public productsTop3Url = "http://localhost:3030/api/products/top-three/";
+    public outOfStockProducts = "http://localhost:3030/api/products/out-of-stock";
 
 }
 

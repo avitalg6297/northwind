@@ -14,6 +14,7 @@ import EditProduct from "../../ProductsArea/EditProduct/EditProduct";
 import Register from "../../AuthArea/Register/Register";
 import Login from "../../AuthArea/Login/Login";
 import Top3 from "../../ProductArea/Top3/Top3";
+import OutOfStock from "../../ProductArea/OutOfStock/OutOfStock";
 
 function delay() {
     return new Promise<void>(resolve => {
@@ -43,6 +44,7 @@ function Routing(): JSX.Element {
                 <Route path="/products/edit/:id" element={<EditProduct />} />
                 <Route path="/products/new" element={<AddProduct />} />
                 <Route path="/products/top3" element={<Top3 />} />
+                <Route path="/products/out-of-stock" element={<OutOfStock />} />
 
                 {/* lazy loading */}
                 <Route path="/about" element={

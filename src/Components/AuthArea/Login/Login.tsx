@@ -26,9 +26,11 @@ function Login(): JSX.Element {
             <form onSubmit={handleSubmit(send)}>
                 <h2>Log in</h2>
                 <label>Email: </label>
-                <input type="email" {...register("email")} />
+                <input type="email" {...register("email", CredentialsModel.emailValidation)} />
+                <span className="err">{formState.errors.email?.message}</span>
                 <label>Password: </label>
-                <input type="password" {...register("password")} />
+                <input type="password" {...register("password", CredentialsModel.passwordValidation)} />
+                <span className="err">{formState.errors.password?.message}</span>
 
                 <button>Log in</button>
             </form>

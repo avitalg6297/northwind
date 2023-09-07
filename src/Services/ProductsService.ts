@@ -55,6 +55,12 @@ class ProductsService {
         return products;
     }
 
+    public async getOutOfStockProducts(): Promise<ProductModel[]>{
+        const response = await axios.get<ProductModel[]>(appConfig.outOfStockProducts)
+        const products = response.data;
+        return products;
+    }
+
 
 
 }
