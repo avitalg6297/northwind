@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import productsService from "../../../Services/ProductsService";
 import ProductModel from "../../../Models/ProductModel";
 import { NavLink } from "react-router-dom";
+import notification from "../../../Utils/Notification";
 
 function ProductDetails(): JSX.Element {
 
@@ -31,7 +32,7 @@ function ProductDetails(): JSX.Element {
                 setProduct(product)
             }
             catch (err: any) {
-                alert(err.message)
+                notification.err(err);
             }
         })();
 
@@ -44,12 +45,12 @@ function ProductDetails(): JSX.Element {
 
             await productsService.deleteProduct(product.id);
 
-            alert("Product has been deleted");
+            notification.success("Product has been deleted");
             navigate("/products");
 
 
         } catch (err: any) {
-            alert(err.message)
+            notification.err(err);
         }
     }
     return (

@@ -4,6 +4,7 @@ import ProductModel from "../../../Models/ProductModel";
 import { useNavigate, useParams } from "react-router-dom";
 import productsService from "../../../Services/ProductsService";
 import { useEffect, useRef, useState } from "react";
+import notification from "../../../Utils/Notification";
 
 function EditProduct(): JSX.Element {
 
@@ -28,7 +29,7 @@ function EditProduct(): JSX.Element {
             setValue("imageUrl",product.imageUrl )
             
 
-        }).catch(err => alert(err.message));
+        }).catch(err => notification.err(err) );
 
     }, [])
 
@@ -36,11 +37,13 @@ function EditProduct(): JSX.Element {
         try {
             product.image = (product.image as unknown as FileList)[0]
             await productsService.updateProduct(product);
-            alert("product has been updated.");
+            notification.success("product has been updated.");
+         
             navigate("/products")
 
         } catch (err: any) {
-            alert(err.message)
+            notification.err(err);
+           
         }
     }
 

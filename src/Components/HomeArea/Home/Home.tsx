@@ -9,6 +9,7 @@ import beveragesSource from '../../../Assets/Images/beverages.jpg'
 import Search from "../Search/Search";
 import useTitle from "../../../Utils/UseTitle";
 import Orders from "../../SharedArea/Orders/Orders";
+import Clock from "../../SharedArea/Clock/Clock";
 
 function Home(): JSX.Element {
 
@@ -44,6 +45,8 @@ function Home(): JSX.Element {
     // }
     return (
         <div className="Home">
+
+            <Clock format="12h"/>
 
             <Search/>
             

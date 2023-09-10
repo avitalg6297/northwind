@@ -3,6 +3,7 @@ import productsService from "../../../Services/ProductsService";
 import "./OutOfStock.css";
 import ProductModel from "../../../Models/ProductModel";
 import ProductCard from "../ProductCard/ProductCard";
+import notification from "../../../Utils/Notification";
 
 function OutOfStock(): JSX.Element {
 
@@ -11,7 +12,7 @@ function OutOfStock(): JSX.Element {
     useEffect(()=>{
         productsService.getOutOfStockProducts()
         .then(products => {setProducts(products)})
-        .catch(err => alert(err.message))
+        .catch(err => notification.err(err) )
     },[]);
     return (
         <div className="OutOfStock">

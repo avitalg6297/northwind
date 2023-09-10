@@ -6,6 +6,8 @@ import Tune from "../Tune/Tune";
 import useTitle from "../../../Utils/UseTitle";
 import Greeting from "../../SharedArea/Greeting/Greeting";
 import Spinner from "../../SharedArea/Spinner/Spinner";
+import notification from "../../../Utils/Notification";
+import LinkedIn from "../LinkedIn/LinkedIn";
 
 function About(): JSX.Element {
 
@@ -29,7 +31,7 @@ function About(): JSX.Element {
     function showNow(args: SyntheticEvent): void {
         console.log(args.target)
         const now = new Date();
-        alert(now.toLocaleString);
+        notification.success(now.toLocaleString());
     }
 
     const navigate = useNavigate(); // React hook
@@ -80,6 +82,7 @@ function About(): JSX.Element {
 
     return (
         <div className="About">
+
             <Greeting hour={new Date().getHours()} />
             <WhoAreWe />
 
@@ -100,6 +103,8 @@ function About(): JSX.Element {
 
             <hr />
             <Tune />
+
+            <LinkedIn />
 
 
         </div>

@@ -1,5 +1,6 @@
 import { ChangeEvent, SyntheticEvent, useState } from "react";
 import "./Search.css";
+import notification from "../../../Utils/Notification";
 
 function Search(): JSX.Element {
 
@@ -11,7 +12,7 @@ function Search(): JSX.Element {
     }
 
     function searchItem(): void {
-        alert(textToSearch);
+        notification.success(textToSearch);
         setTextToSearch("");
     }
     return (
